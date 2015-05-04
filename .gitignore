@@ -30,3 +30,5 @@
 
 # Other junk
 *.kdev4
+toasty_client
+toasty_server
