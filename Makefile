@@ -1,16 +1,12 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Wwrite-strings
+SERVER_DIR=server
+CLIENT_DIR=client
 
-STARGET = toasty_server
-CTARGET = toasty_client
+CLEAN=$(MAKE) clean
 
-all: $(STARGET) $(CTARGET)
-
-$(STARGET) : $(STARGET).c
-	$(CC) $(CFLAGS) -o $(STARGET) $(STARGET).c
-
-$(CTARGET) : $(CTARGET).c
-	$(CC) $(CFLAGS) -o $(CTARGET) $(CTARGET).c
+all:
+	$(MAKE) -C $(SERVER_DIR)
+	$(MAKE) -C $(CLIENT_DIR)
 
 clean:
-	rm $(STARGET) $(CTARGET)
+	+$(CLEAN) -C $(SERVER_DIR)
+	+$(CLEAN) -C $(CLIENT_DIR)
